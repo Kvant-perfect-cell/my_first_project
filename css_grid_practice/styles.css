@@ -1,0 +1,239 @@
+/* Основной Grid-контейнер */
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #0ea5a4 0%, #4338ca 100%);
+    color: white;
+    padding: 1.6rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.3rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Навигация */
+.navigation {
+    background-color: #1f2937;
+    color: white;
+    padding: 0.8rem;
+}
+
+.navigation h2 {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    transition: background-color 0.4s;
+}
+
+.navigation a:hover {
+    background-color: #4b5563;
+}
+
+/* Основная сетка страницы с именованными областями */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav nav"
+        "main sidebar"
+        "footer footer";
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr 260px;
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+}
+
+.navigation {
+    grid-area: nav;
+}
+
+.main-content {
+    grid-area: main;
+    padding: 1.6rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f1f5f9;
+    padding: 1.4rem;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/* Основной контент как Grid-контейнер */
+.main-content {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-rows: auto 1fr;
+}
+
+/* Featured статья */
+.featured {
+    background: linear-gradient(135deg, #f97316 0%, #e11d48 100%);
+    color: white;
+    padding: 1.6rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.featured h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Галерея как Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    color: white;
+    padding: 1.6rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    min-height: 140px;
+}
+
+/* Футер как Grid */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    background-color: #1f2937;
+    color: white;
+    padding: 1.6rem;
+}
+
+.footer-section {
+    background-color: #111827;
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Адаптивная галерея, размещение элементов по линиям */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+}
+
+.gallery-item:nth-child(1) {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.gallery-item:nth-child(2) {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.gallery-item:nth-child(3) {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #fbbf24 0%, #fde68a 100%);
+    color: #1f2937;
+}
+
+/* Выравнивание и промежутки */
+.gallery {
+    align-items: center;
+    justify-items: stretch;
+}
+
+.gallery-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-container {
+    gap: 0;
+}
+
+.main-content {
+    gap: 1.5rem;
+}
+
+.gallery {
+    gap: 1.25rem;
+}
+
+/* Альтернативная запись сетки одним свойством */
+.grid-container {
+    grid-template:
+        "header header" auto
+        "nav nav" auto
+        "main sidebar" 1fr
+        "footer footer" auto
+        / 1fr 260px;
+}
+
+.gallery {
+    grid-auto-rows: minmax(140px, auto);
+    grid-auto-flow: row dense;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-columns: 1fr;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3) {
+        grid-area: auto;
+    }
+}

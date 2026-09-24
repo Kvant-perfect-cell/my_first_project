@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивная верстка</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">MyResponsive</h1>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+                <ul class="nav-menu">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Блог</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h2>Сайт, который подстраивается под любой экран</h2>
+                <p>Верстка одинаково хорошо работает на телефоне, планшете и компьютере</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Почему это удобно</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Гибкость</h3>
+                        <p>Макет перестраивается под размер экрана</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Отзывчивость</h3>
+                        <p>Страница быстро реагирует на изменение окна</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Удобство</h3>
+                        <p>Читать и нажимать одинаково просто на любом устройстве</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <article class="main-content">
+                    <h2>О проекте</h2>
+                    <p>Это основная статья страницы. Здесь размещается ключевой текст, который читатель видит в первую очередь и на который делается основной акцент в макете.</p>
+                    <img src="https://via.placeholder.com/800x400" alt="Пример изображения" class="responsive-img">
+                </article>
+                <aside class="sidebar">
+                    <h3>Полезное</h3>
+                    <p>Дополнительные ссылки, виджеты и краткая справочная информация.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MyResponsive. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            navToggle.addEventListener('click', function () {
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
